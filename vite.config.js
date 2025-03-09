@@ -1,12 +1,19 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
+
 export default defineConfig({
-    build: {
-        outDir: 'dist',
-        rollupOptions: {
-            input: {
-                main: resolve(__dirname, 'index.html')
-            }
-        }
+  base: '/', // Ensure correct base path
+  build: {
+    outDir: 'dist', // Default output folder
+    assetsDir: 'assets', // Asset directory
+  },
+  server: {
+    port: 3000, // Set local dev server port
+    open: true, // Open browser on start
+  },
+  resolve: {
+    alias: {
+      '@': '/src', // Example alias for cleaner imports
     },
+  },
 });
+
